@@ -44,6 +44,7 @@ export interface ActionInterface {
   /** Wipes the commit history from the deployment branch in favor of a single commit. */
   singleCommit?: boolean | null
   /** Determines if the action should run in silent mode or not. */
+  // 决定动作是否应在静默模式下运行。
   silent: boolean
   /** Defines an SSH private key that can be used during deployment. This can also be set to true to use SSH deployment endpoints if you've already configured the SSH client outside of this package. */
   sshKey?: string | boolean | null

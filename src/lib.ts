@@ -36,15 +36,20 @@ export default async function run(
     }
 
     // Defines the repository/folder paths and token types.
+    // 定义存储库/文件夹路径和令牌类型。
     // Also verifies that the action has all of the required parameters.
+    // 还验证操作是否具有所需的所有参数。
     settings.folderPath = generateFolderPath(settings)
 
-    checkParameters(settings)
+    checkParameters(settings) // 参数检测 检查必需参数 token sshkey
 
+    // 判断 ssh 登录 还是 token 登录，并拼接对应 git 地址
     settings.repositoryPath = generateRepositoryPath(settings)
+    // ssh: SSH Deploy Key | token: Deploy Token | none: ...
     settings.tokenType = generateTokenType(settings)
 
     if (settings.sshKey) {
+      // 设置 github 默认指纹
       await configureSSH(settings)
     }
 

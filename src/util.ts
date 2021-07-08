@@ -45,6 +45,7 @@ const hasRequiredParameters = <K extends keyof RequiredActionParameters>(
 }
 
 /* Verifies the action has the required parameters to run, otherwise throw an error. */
+// 进行必需参数检测
 export const checkParameters = (action: ActionInterface): void => {
   if (!hasRequiredParameters(action, ['token', 'sshKey'])) {
     throw new Error(
